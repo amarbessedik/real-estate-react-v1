@@ -2,6 +2,9 @@ import React from 'react'
 import { Link } from "react-router-dom"
 import styled, { css } from 'styled-components/macro'
 import { menuData } from '../data/MenuData'
+import { Button } from './Button';
+import Bars from '../images/bars.svg'
+// import {FaBars} from 'react-icons/fa'
 
 const NavLink = css`
   color: #fff;
@@ -21,12 +24,33 @@ const Nav = styled.nav`
   z-index: 100;
   position: fixed;
   width: 100%;
-  background: #000;
+  background: #900a1d;
 `
-const MenuBars = styled.i``
+const MenuBars = styled.i`
+  display: none;
+
+  @media screen and (max-width: 768px) {
+    display: block;
+    /* font-size: 24px; */
+    cursor: pointer;
+    background-image: url(${Bars});
+    background-size: contain;
+    height: 40px;
+    width: 40px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: translate(-50%, 25%);
+  }
+`;
 const NavMenu = styled.div`
   display: flex;
   align-items: center;
+  margin-right: -48px;
+
+  @media screen and (max-width:768px){
+   display: none;
+  }
 `
 const NavMenuLinks = styled(Link)`
   ${NavLink}
@@ -34,6 +58,16 @@ const NavMenuLinks = styled(Link)`
 const Logo = styled(Link)`
   ${NavLink};
   font-style: italic;
+`
+
+const NavBtn = styled.div`
+  display: flex;
+  align-items: center;
+  margin-right: 24px;
+
+  @media screen and (max-width: 768px) {
+    display: none;
+  }
 `;
 
 const Navbar = () => {
@@ -48,6 +82,9 @@ const Navbar = () => {
                  </NavMenuLinks>
                 ))}
             </NavMenu>
+            <NavBtn>
+                <Button to='/contact' primary={true} big={false}>Contact</Button>
+            </NavBtn>
         </Nav>
     )
 }
