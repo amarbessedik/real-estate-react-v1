@@ -7,7 +7,7 @@ import Bars from '../images/bars.svg'
 // import {FaBars} from 'react-icons/fa'
 
 const NavLink = css`
-  color: #fff;
+  color: red;
   display: flex;
   align-items: center;
   padding: 0 1rem;
@@ -24,8 +24,8 @@ const Nav = styled.nav`
   z-index: 100;
   position: fixed;
   width: 100%;
-  background: #900a1d;
-`
+  /* background: #900a1d; */
+`;
 const MenuBars = styled.i`
   display: none;
 
