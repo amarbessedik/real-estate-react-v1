@@ -30,6 +30,7 @@ const MenuBars = styled.i`
   display: none;
 
   @media screen and (max-width: 768px) {
+    z-index: 999;
     display: block;
     /* font-size: 24px; */
     cursor: pointer;
@@ -70,7 +71,7 @@ const NavBtn = styled.div`
   }
 `;
 
-const Navbar = () => {
+const Navbar = ({toggle}) => {
     return (
         <Nav>
             <Logo to='/'>LUWNIS</Logo>
@@ -83,7 +84,7 @@ const Navbar = () => {
                 ))}
             </NavMenu>
             <NavBtn>
-                <Button to='/contact' primary={true} big={false}>Contact</Button>
+                <Button to='/contact' primary='true' big='false'>Contact</Button>
             </NavBtn>
         </Nav>
     )
