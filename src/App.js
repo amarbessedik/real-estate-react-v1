@@ -10,12 +10,13 @@ function App() {
 const [isOpen, setIsOpen] = useState(false);
 
 const toggle = () => {setIsOpen(!isOpen);}
+const reset = () => {setIsOpen(false);}
 
   return (
     <div className="app">
       <GlobalStyle />
       <Navbar toggle={toggle} />
-      <Dropdown isOpen={isOpen} toggle={toggle} />
+      <Dropdown isOpen={isOpen} toggle={toggle} reset={reset}/>
       <Hero slides={SliderData} isOpen={isOpen} />
     </div>
   );

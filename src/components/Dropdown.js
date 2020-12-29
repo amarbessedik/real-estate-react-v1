@@ -17,10 +17,9 @@ const DropdownContainer = styled.div`
   left: 0;
   transition: 0.3s ease-in-out;
   opacity: ${({ isOpen }) => (isOpen ? 1 : 0)};
-  top: ${({ isOpen }) => (isOpen ? '0' : '-100px')};
-
-  @media screen and (min-width: 768px) {
-      display: none;
+   @media screen and
+    (min-width: 768px) {
+    display: none;
   }
 `;
 const Icon = styled.div`
@@ -41,6 +40,7 @@ const DropdownMenu = styled.div`
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: repeat(4, 80px);
+  /* grid-template-rows: 80px; */
   text-align: center;
   margin-bottom: 4rem;
 
@@ -68,17 +68,21 @@ const BtnWrap = styled.div`
   justify-content: center;
 `;
 
-const Dropdown = ({ isOpen, toggle }) => {
+const Dropdown = ({ isOpen, toggle, reset }) => {
   return (
-    <DropdownContainer isOpen={isOpen} >
+    <DropdownContainer isOpen={isOpen}>
       <Icon>
         <CloseIcon onClick={toggle} />
       </Icon>
       <DropdownWrapper>
         <DropdownMenu>
           {menuData.map((item, index) => (
-            <DropdownLink to={item.link} key={index} onClick={toggle}>
-              {item.title}
+            <DropdownLink
+              style={{ display: isOpen ? "block" : "none" }}
+              to={item.link}
+              key={index}
+            >
+              <span onClick={reset}>{item.title}</span>
             </DropdownLink>
           ))}
         </DropdownMenu>
